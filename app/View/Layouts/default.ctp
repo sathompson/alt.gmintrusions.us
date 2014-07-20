@@ -23,14 +23,10 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 <html>
 <head>
 	<?php echo $this->Html->charset(); ?>
-	<title>
-		<?php echo $cakeDescription ?>:
-		<?php echo $title_for_layout; ?>
-	</title>
+	<title>GM Intrusions!</title>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	<?php
-		echo $this->Html->meta('icon');
-
-		echo $this->Html->css('cake.generic');
+		echo $this->Html->css('application');
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
@@ -38,27 +34,68 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 	?>
 </head>
 <body>
-	<div id="container">
-		<div id="header">
-			<h1><?php echo $this->Html->link($cakeDescription, 'http://cakephp.org'); ?></h1>
-		</div>
-		<div id="content">
+	<header>
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<?php echo $this->Html->link('GMIntrusions.us', '/', array('class' => 'navbar-brand')); ?>
+				</div>
+				<ul class="nav navbar-nav">
+					<li><?php echo $this->Html->link('About', ''); ?></li>
+					<li><?php echo $this->Html->link('Contact Us', ''); ?></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><?php echo $this->Html->link('All Tags', ''); ?></li>
+					<li><?php echo $this->Html->link('New Intrusion', ''); ?></li>
+					<li><?php echo $this->Html->link('New Tag', ''); ?></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
 
-			<?php echo $this->Session->flash(); ?>
+	<div class="container" id="alerts">
+		<?php
+		if (isset($error_msgs)) {
+			foreach ($error_msgs as $msg) {
+				echo $this->Html->div('alert alert-danger', $msg);
+			}
+		}
+		if (isset($warning_msgs)) {
+			foreach ($warning_msgs as $msg) {
+				echo $this->Html->div('alert alert-warning', $msg);
+			}
+		}
+		if (isset($info_msgs)) {
+			foreach ($info_msgs as $msg) {
+				echo $this->Html->div('alert alert-info', $msg);
+			}
+		}
+		if (isset($success_msgs)) {
+			foreach ($success_msgs as $msg) {
+				echo $this->Html->div('alert alert-success', $msg);
+			}
+		}
+		unset($msg);
+		?>
+	</div>
 
-			<?php echo $this->fetch('content'); ?>
-		</div>
-		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false, 'id' => 'cake-powered')
-				);
-			?>
+	<div class="container">
+		<?php echo $this->fetch('content'); ?>
+	</div>
+
+	<footer class="footer">
+		<div class="container text-center">
+			<nav role="navigation">
+				<ul class="list-inline">
+					<li><?php echo $this->Html->link('About', ''); ?></li>
+					<li><?php echo $this->Html->link('Contact Us', ''); ?></li>
+				</ul>
+			</nav>
 			<p>
-				<?php echo $cakeVersion; ?>
+				<?php echo $this->Html->Link('Numenera and its logo are trademarks of Monte Cook Games, LLC in the U.S.A. and other countries. All Monte Cook Games characters and character names, and the distinctive likenesses thereof, are trademarks of Monte Cook Games, LLC. Content derived from Monte Cook Games publications is © 2013-2014 Monte Cook Games, LLC.',
+				array('controller' => 'pages', 'action' => 'display', 'disclaimer'), array('class' => 'text-muted')); ?>
 			</p>
 		</div>
-	</div>
+	</footer>
 </body>
 </html>

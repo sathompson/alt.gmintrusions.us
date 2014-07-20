@@ -1,0 +1,65 @@
+/* This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_self
+ */
+/* Sticky Footer */
+html {
+  position: relative;
+  min-height: 100%; }
+
+body {
+  margin-bottom: 12rem; }
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 10rem;
+  background-color: whitesmoke; }
+
+/* General Classes */
+#closeHeading, .intrusion-heading, .tag-heading {
+  padding: 5px 10px; }
+
+/* Style Overrides */
+#closeHeading {
+  overflow: hidden; }
+
+/* Imports */
+.intrusion-description {
+  font-size: 125%;
+  font-weight: bold; }
+
+.tag, .tag-label {
+  font-size: 100%;
+  line-height: 2em;
+  background-color: #398eb5; }
+
+a.tag.tag:hover, a.tag-label:hover {
+  background-color: #2d7190; }
+
+.tag-label {
+  border: 1px outset; }
+
+.tag-label:hover {
+  cursor: pointer; }
+
+input:checked + .tag-label {
+  border: 1px inset;
+  background-color: #2d7190; }
+
+.tag-panel {
+  border-color: #398eb5; }
+
+.tag-heading.tag-heading {
+  background-color: #398eb5;
+  border-color: #398eb5; }
