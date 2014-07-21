@@ -1,7 +1,7 @@
 <?php
 
 class Intrusion extends AppModel {
-  public $order = "Intrusion.created_at DESC";
+  public $order = "Intrusion.created DESC";
   public $validate = array(
     'description' => array(
       'isUnique' => array(

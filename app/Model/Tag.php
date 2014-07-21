@@ -18,7 +18,7 @@ class Tag extends AppModel {
     'Intrusion' => array(
       'className' => 'Intrusion',
       'unique' => 'keepExisting',
-      'order' => 'Intrusion.created_at DESC'
+      'order' => 'Intrusion.created DESC'
     )
   );
 }
