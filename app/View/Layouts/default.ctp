@@ -46,7 +46,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><?php echo $this->Html->link('All Tags', ''); ?></li>
-					<li><?php echo $this->Html->link('New Intrusion', ''); ?></li>
+					<li><?php echo $this->Html->link('New Intrusion', array('controller' => 'intrusions', 'action' => 'add')); ?></li>
 					<li><?php echo $this->Html->link('New Tag', ''); ?></li>
 				</ul>
 			</div>
