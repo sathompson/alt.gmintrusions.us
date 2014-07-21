@@ -54,29 +54,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 	</header>
 
 	<div class="container" id="alerts">
-		<?php
-		if (isset($error_msgs)) {
-			foreach ($error_msgs as $msg) {
-				echo $this->Html->div('alert alert-danger', $msg);
-			}
-		}
-		if (isset($warning_msgs)) {
-			foreach ($warning_msgs as $msg) {
-				echo $this->Html->div('alert alert-warning', $msg);
-			}
-		}
-		if (isset($info_msgs)) {
-			foreach ($info_msgs as $msg) {
-				echo $this->Html->div('alert alert-info', $msg);
-			}
-		}
-		if (isset($success_msgs)) {
-			foreach ($success_msgs as $msg) {
-				echo $this->Html->div('alert alert-success', $msg);
-			}
-		}
-		unset($msg);
-		?>
+		<?php echo $this->Session->flash(); ?>
 	</div>
 
 	<div class="container">
